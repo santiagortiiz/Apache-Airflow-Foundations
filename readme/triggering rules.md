@@ -1,0 +1,6 @@
+all_success
+all_failed
+all_done
+one_success
+one_failed
+none_failed
