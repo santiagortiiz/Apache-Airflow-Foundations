@@ -1,0 +1,3 @@
+# Server
+fastapi
+uvicorn[standard]
