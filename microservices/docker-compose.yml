@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  extract:
+    build: extract
+    ports:
+    - "8001:80"
+    networks:
+      - airflow
+      - etl
+
+  transform:
+    build: transform
+    ports:
+    - "8002:80"
+    networks:
+      - airflow
+      - etl
+
+  load:
+    build: load
+    ports:
+    - "8003:80"
+    networks:
+      - airflow
+      - etl
+
+  etl:
+    build: orchestrator
+    ports:
+    - "8004:80"
+    networks:
+      - airflow
+      - etl
+
+networks:
+  airflow:
+    name: apacheairflow_default
+    external: true
+  etl:
+    driver: bridge

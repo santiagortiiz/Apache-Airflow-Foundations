@@ -1,0 +1,25 @@
+### Extract
+GET http://localhost:8001/api/extract/
+
+### Transform
+POST http://localhost:8002/api/transform/?prev_result=1
+
+{
+    "source_data": {
+        "some_field": "some_value"
+    },
+    "some_schema": {
+        "some_field": "target_field"
+    }
+}
+
+### Load
+POST http://localhost:8003/api/load/
+
+{
+  "target_field": "some_value",
+  "id": 10
+}
+
+### ETL
+GET http://localhost:8004/api/run-etl/

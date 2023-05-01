@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  extract:
+    volumes:
+    - "./extract:/microservice"
+    command: ["uvicorn", "extract:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+
+  transform:
+    volumes:
+    - "./transform/src/:/microservice/src"
+    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+
+  load:
+    volumes:
+    - "./load:/microservice"
+    command: ["uvicorn", "load:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+
+  etl:
+    volumes:
+    - "./orchestrator/:/microservice"
+    command: ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
