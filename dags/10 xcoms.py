@@ -1,9 +1,10 @@
+from datetime import datetime
+
 from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.utils.trigger_rule import TriggerRule
-from datetime import datetime
 
 def print_last_result(**context):
     data = context['ti'].xcom_pull(task_ids='2_second_task')
