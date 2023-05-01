@@ -1,0 +1,7 @@
+# Server
+fastapi
+uvicorn[standard]
+
+# Data processing
+pandas
+jsonpath-ng
