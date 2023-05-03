@@ -6,7 +6,7 @@ from airflow.utils.trigger_rule import TriggerRule
 
 from etl.tasks import extract, transform, load
 
-with DAG(dag_id="12_NEW_ETL",
+with DAG(dag_id="12_ETL",
          description="Run an ETL based on microservices",
          schedule_interval="@daily",
          start_date=datetime(2023, 4, 23),
